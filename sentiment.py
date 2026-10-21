@@ -9,3 +9,7 @@ class SentimentChecker:
             "hate": -2, "terrible": -2, "awful": -2, "worst": -2,
         }
         self.negations = {"not", "no", "never", "dont", "isnt"}
+
+def clean(self, sentence):
+    no_punct = sentence.translate(str.maketrans("","",string.punctuation))
+    return no_punct.lower().split()
