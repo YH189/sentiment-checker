@@ -21,7 +21,7 @@ def score(self, sentence):
     for i, word in enumerate(words):
         if word in self.words_score:
             value = self.words_score[word]
-            
+
             if i > 0 and words[i - 1] in self.negations:
                 value = -value
                 
@@ -29,3 +29,10 @@ def score(self, sentence):
     return total
 
 
+def label(self, sentence):
+    total = self.score(sentence)
+    if total > 0:
+        return "positive", total
+    elif total < 0:
+        return "negative", total
+    return "neutral", total
